@@ -8,6 +8,7 @@ class FightApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }
