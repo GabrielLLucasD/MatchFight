@@ -4,53 +4,71 @@ import java.time.LocalDateTime;
 
 public class LutadorDTO {
 
-		private Long id;
-		private String nome;
-		private LocalDateTime dataNascimento;
-		private Academia academia;
-		private Boolean disponivel;
-		
-		public LutadorDTO() {}
+    private Long id;
+    private String nome;
+    private LocalDateTime dataNascimento;
+    private Double peso;
+    private Long idAcademia;
+    private String graduacao;
+    private Boolean disponivelLuta;
 
-		public Long getId() {
-			return id;
-		}
+    public LutadorDTO() {}
 
-		public void setId(Long id) {
-			this.id = id;
-		}
+    public Long getId() {
+        return id;
+    }
 
-		public String getNome() {
-			return nome;
-		}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-		public void setNome(String nome) {
-			this.nome = nome;
-		}
+    public String getNome() {
+        return nome;
+    }
 
-		public LocalDateTime getDataNascimento() {
-			return dataNascimento;
-		}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-		public void setDataNascimento(LocalDateTime dataNascimento) {
-			this.dataNascimento = dataNascimento;
-		}
+    public LocalDateTime getDataNascimento() {
+        return dataNascimento;
+    }
 
-		public Academia getAcademia() {
-			return academia;
-		}
+    public void setDataNascimento(LocalDateTime dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
 
-		public void setAcademia(Academia academia) {
-			this.academia = academia;
-		}
+    public Double getPeso() {
+		return peso;
+	}
 
-		public Boolean getDisponivel() {
-			return disponivel;
-		}
+	public void setPeso(Double peso) {
+		this.peso = peso;
+	}
 
-		public void setDisponivel(Boolean disponivel) {
-			this.disponivel = disponivel;
-		}
-		
-		
+	public Long getIdAcademia() {
+        return idAcademia;
+    }
+
+    public void setIdAcademia(Long idAcademia) {
+        this.idAcademia = idAcademia;
+    }
+
+
+    public String getGraduacao() {
+		return graduacao;
+	}
+
+	public void setGraduacao(String graduacao) {
+		this.graduacao = graduacao;
+	}
+
+	public Boolean getDisponivelLuta() {
+        return disponivelLuta;
+    }
+
+    public void setDisponivelLuta(Boolean disponivel) {
+        this.disponivelLuta = disponivel;
+    }
 }
+

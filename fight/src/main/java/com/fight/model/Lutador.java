@@ -1,65 +1,49 @@
 package com.fight.model;
 
 import java.time.LocalDateTime;
-import java.util.List;
-
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
-
+import jakarta.persistence.*;
 
 @Entity
 @Table(name="lutador")
 public class Lutador {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator= "id_lutador")
-	@SequenceGenerator(name="id_lutador", sequenceName = "id_lutador", allocationSize = 1)
-	@Column(name="id")
-	private Long id;
-	
-	@Column(name ="nome", nullable = false)
-	private String nome;
-	
-	@Column(name ="data_nascimento",nullable = false)
-	private LocalDateTime dataNascimento;
-	
-	@ManyToOne
-	@JoinColumn(name="id_academia", nullable = false)
-	private Academia academia;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name="id_arte", nullable = false)
-	private List<Arte> artes;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator= "id_lutador")
+    @SequenceGenerator(name="id_lutador", sequenceName = "id_lutador", allocationSize = 1)
+    @Column(name="id")
+    private Long id;
 
-	@Column(name = "disponivel_luta", nullable = false)
-	private Boolean disponivelLuta;
-	
-	
-	
-	
-	public Lutador() {
-		
-	}
-	public Lutador(LutadorDTO lutadorDTO) {
-		this.nome = lutadorDTO.getNome();
-		this.dataNascimento = lutadorDTO.getDataNascimento();
-		this.academia = lutadorDTO.getAcademia();
-		this.disponivelLuta = lutadorDTO.getDisponivel();
-	}
-	
-	
-	
-	
-	
+    @Column(name ="nome", nullable = false)
+    private String nome;
+
+    @Column(name ="data_nascimento", nullable = false)
+    private LocalDateTime dataNascimento;
+
+    @Column(name = "peso", nullable = false)
+    private Double peso;
+    
+    @ManyToOne
+    @JoinColumn(name="id_academia", nullable = false)
+    private Academia academia;
+
+
+    @Column(name = "graduacao", nullable = false)
+    private String graduacao;
+    
+    @Column(name = "disponivel_luta", nullable = false)
+    private Boolean disponivelLuta;
+
+    public Lutador() {
+    }
+
+    public Lutador(LutadorDTO lutadorDTO, Academia academia) {
+        this.nome = lutadorDTO.getNome();
+        this.dataNascimento = lutadorDTO.getDataNascimento();
+        this.academia = academia;
+        this.peso = lutadorDTO.getPeso();
+        this.disponivelLuta = lutadorDTO.getDisponivelLuta();
+
+    }
 
 	public Long getId() {
 		return id;
@@ -85,6 +69,14 @@ public class Lutador {
 		this.dataNascimento = dataNascimento;
 	}
 
+	public Double getPeso() {
+		return peso;
+	}
+
+	public void setPeso(Double peso) {
+		this.peso = peso;
+	}
+
 	public Academia getAcademia() {
 		return academia;
 	}
@@ -93,4 +85,20 @@ public class Lutador {
 		this.academia = academia;
 	}
 	
+	public String getGraduacao() {
+		return graduacao;
+	}
+
+	public void setGraduacao(String graduacao) {
+		this.graduacao = graduacao;
+	}
+
+	public Boolean getDisponivelLuta() {
+		return disponivelLuta;
+	}
+
+	public void setDisponivelLuta(Boolean disponivelLuta) {
+		this.disponivelLuta = disponivelLuta;
+	}
+
 }

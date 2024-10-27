@@ -32,6 +32,9 @@ public class Academia {
 	@Column(name = "email", nullable = false)
 	private String email;
 	
+	@Column(name = "arte", nullable = false)
+	private String arte;
+	
 	@OneToMany(mappedBy = "academia", cascade = CascadeType.ALL)
 	@JoinColumn(name="id_lutador")
 	private List<Lutador> alunos;
@@ -41,8 +44,13 @@ public class Academia {
 	public Academia() {
 		
 	}
-	public Academia(AcademiaDTO academiaDTO) {
-		
+	public Academia(AcademiaDTO academiaDTO, List<Lutador> alunos) {
+		this.nome = academiaDTO.getNome();
+		this.mestre = academiaDTO.getMestre();
+		this.telefone = academiaDTO.getTelefone();
+		this.email = academiaDTO.getEmail();
+		this.arte = academiaDTO.getArte();
+		this.alunos = alunos;
 	}
 	
 	
